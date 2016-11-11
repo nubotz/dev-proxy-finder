@@ -28,7 +28,7 @@ def crawl_proxy_servers():
     if page.status_code == requests.codes.ok:
         bsobj = BeautifulSoup(page.text, 'html.parser')
         try:
-            proxy_table = bsobj.find('div', {'class': 'table-container'})
+            proxy_table = bsobj.findAll('div', {'class': 'table-container'})[1]
             proxy_body = proxy_table.find('table').find('tbody')
             for tr in proxy_body.findAll('tr'):
                 proxy_info = tr.findAll('td')
