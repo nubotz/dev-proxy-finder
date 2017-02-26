@@ -47,7 +47,6 @@ def crawl_proxy_servers():
 
 def test_proxy_server(proxy):
     proxies = {'http': proxy}
-
     try:
         response = requests.get(test_url, proxies=proxies, timeout=10)
         if response.status_code == requests.codes.ok:
